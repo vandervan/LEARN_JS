@@ -5,11 +5,11 @@ let работает только в блоке кода {}, где непоср
 let a = 10; 
 console.log(a);
 
-let q, qwe, Valera; //в JavaScript можно объявлять переменные в одну строку. Как и комментарии. Небольшие
+let q, qwe, name; //в JavaScript можно объявлять переменные в одну строку. Как и комментарии. Небольшие
 q = 11;
 qwe = 'privet';
-Valera = name;
-console.log(q, qwe, Valera);
+name = Valera;
+console.log(q, qwe, name);
 
 
 /*хорошим практисом считается CamelCase сложносоставных имен переменных
