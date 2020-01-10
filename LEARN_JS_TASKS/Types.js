@@ -1,27 +1,28 @@
 // 1. Сложение различных типов больше похоже на конкатенацию, т.к. не задано приведение типов, а метод консоль лог приводит к строке по дефолту
-var a = 12, b = "JavaScript";
+const a = 12, b = "JavaScript";
 console.log (a+b);
 
 //1.1 null + string
-var emptyVariable = null, stringVariable = "Master of Puppets";
+let emptyVariable = null;
+const stringVariable = "Master of Puppets";
 console.log(emptyVariable + stringVariable); // выведет nullMaster of Puppets
 /* Сам по себе null имеет значение 0 и при сложении с "интовым" значением (к примеру налл + 1) выведет его значение
 e.g null + 1 = 1, null + 0 = 0 и т.д */
 
 //1.2 null + boolean
-var booleanTrueVariable = true, emptyVariable;
+let booleanTrueVariable = true;
 console.log(booleanTrueVariable + emptyVariable); //null + true = 1
 
 //2. Умножение различных типов 
 console.log(booleanTrueVariable * emptyVariable); // null * true = 0, т.к. 1 * 0 = 0, как в математике
 
 //2.1 undefined. Любая операция с undefined возвращает undefined
-var und = undefined; 
-console.log(und * booleanVariable); // NaN
+const und = undefined;
+console.log(und * booleanTrueVariable); // NaN
 console.log(und * emptyVariable); // NaN
 
 //3. Вычитание различных типов
-var booleanFalseVariable = false;
+const booleanFalseVariable = false;
 console.log(booleanFalseVariable - booleanTrueVariable); // false - true = -1, т.к. булевы операторы имеют значения 1 и 0
 
 console.log(emptyVariable - booleanTrueVariable); // null - true = -1
@@ -41,8 +42,8 @@ console.log(+"123"); // 123 - преобразование к численном
 console.log(Number("123")); // 123 - преобразование к численному типу
 console.log(String(123)); // "123" - преобразование к строке
 
-var c = true;
-alert(c); // преобразование к строке методом алерт
+const c = true;
+/*alert(c); // преобразование к строке методом алерт. Закомментировано для работоспособности из WebStorm*/
 
 console.log(true + "true"); // при использовании унарного плюса можно конкатенировать строки и результатом будет строка truetrue
 console.log("123" + undefined); //123undefined
