@@ -2,10 +2,10 @@
 Используя конструкцию if..else, напишите код, который будет спрашивать: „Какое «официальное» название JavaScript?“
 Если пользователь вводит «ECMAScript», то показать: «Верно!», в противном случае – отобразить: «Не знаете? ECMAScript!»
  */
-let name =  prompt("What's the 'оффициальное название' JavaScript?", '');
-if (name === 'ECMAScript'){
+let name = prompt("What's the 'оффициальное название' JavaScript?", '');
+if (name === 'ECMAScript') {
     alert("Правильно!");
-}else{
+} else {
     alert("You don't know?",'ECMAScript!');
 }
 
@@ -18,18 +18,17 @@ if (name === 'ECMAScript'){
 Предполагается, что пользователь вводит только числа.
  */
 let number = prompt('Введите число', '');
-if (number > 0){
+if (number > 0) {
     alert(1);
-} else if (number < 0){
+} else if (number < 0) {
     alert(-1);
-}else if (number = 0){
+} else if (number = 0) {
     alert(0);
 }
 
 /* Задача 3.
 Перепишите if с использованием условного оператора '?':
  */
-
 let result;
 if (a + b < 4) {
     result = 'Мало';
@@ -38,7 +37,7 @@ if (a + b < 4) {
 }
 // Решение:
 let a = 1, b = 2;
-(a + b) < 4 ? 'malo':'mnogo';
+(a + b) < 4 ? 'malo' : 'mnogo';
 
 /* Задача 4.
 Перепишите 'if..else' в '?'
@@ -58,19 +57,18 @@ if (login === 'Сотрудник') {
 }
 
 //Решение:
-
 let log = prompt('Please, enter your login', '');
     (log === 'Сотрудник') ? 'Привет' :
         (log === 'Директор') ? 'Здравствуйте' :
             (log === '') ? 'Нет логина' :
-                ''
+                '';
 
 /* Задача 5.
 if (строка с нулём)
 Выведется ли alert?
  */
 if ("0") {
-    alert( 'Привет' );
+    alert('Привет');
 }
 
 //Решение:
