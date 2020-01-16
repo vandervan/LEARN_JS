@@ -14,7 +14,7 @@ if (age >= 14 && age <= 90) {
 С оператором НЕ !:
  */
 let age = prompt('Введите ваш возраст', '');
-if ( ! (age >= 14 && age <= 90) ) {
+if (!(age >= 14 && age <= 90)){
     console.log('Не в диапазоне ' + age);
 } else {
     console.log('В диапазоне ' + age);
@@ -22,7 +22,7 @@ if ( ! (age >= 14 && age <= 90) ) {
 
 //С оператором ИЛИ || просто переворачиваем знаки сравнения:
 let age = prompt('Введите ваш возраст', '');
-if (age < 14 || age > 90) {
+if (age < 14 || age > 90){
     console.log('Не в диапазоне ' + age );
 } else {
     console.log('В диапазоне ' + age);
@@ -47,12 +47,9 @@ if (login === 'Админ') {
     } else if (password === '') {
         alert('Неверный пароль');
     }
-}  if (login == null || login === '') {
+}  
+if (login == null || login === ''){
     alert("Отменено");
-} else if (login !== 'Админ') {
+} else if (login !== 'Админ'){
     alert("Я вас не знаю");
 }
-
-
-
-
