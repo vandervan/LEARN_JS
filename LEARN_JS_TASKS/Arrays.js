@@ -63,3 +63,7 @@ console.log(getMaxSubSum([-2, -1, 1, 2]));
 console.log(getMaxSubSum([100, -9, 2, -3, 5]));
 console.log(getMaxSubSum([1, 2, 3]));
 console.log(getMaxSubSum([-1, -2, -3]));
+
+/* Задача 4.
+
+ */
