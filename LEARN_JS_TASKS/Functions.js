@@ -3,7 +3,7 @@
 В ином случае она задаёт вопрос confirm и возвращает его результат.
 */
 function checkAge(age) {
-   return age > 18 ? alert("Premium week is now free!"): confirm ("Родители разрешили?");
+   return age > 18 ? alert("Premium week is now free!"): confirm("Родители разрешили?");
 }
 checkAge(12);
 // С оператором ИЛИ
@@ -23,13 +23,11 @@ min(1, 1) == 1
 function min(a, b) {
     if (a > b) {
         return(b)
-    } else if (a == b) {
-        return(a)
-    } else if (a < b) {
+    } else {
         return(a)
     }
 }
-min(1, 1);
+min(1, -5);
 
 /* Задача 3. Функция pow(x,n)
 Напишите функцию pow(x,n), которая возвращает x в степени n. Иначе говоря, умножает x на себя n раз и возвращает результат.
@@ -50,9 +48,10 @@ function pow(x, n) {
 pow(enterX, enterN);
 
 /* Задача 4. Функция сложения двух чисел
+
  */
 function sum(a, b) {
-    return a+b;
+    return a + b;
 }
 sum(1, 2);
 
@@ -67,7 +66,7 @@ function isName(enterName, yourName) {
         return 'Wrong name';
     }
 }
-isName(enterName,'Andre');
+isName(enterName, 'Andre');
 
 /* Задача 6. Функция вычисления типа аргумента и вывод в консоль
  */
@@ -80,7 +79,7 @@ argsType(1, '123');
  */
 function isEven(arr) {
     arr = [1, 2, 3, 7, 12, 24];
-    var sortedArr = arr.filter(item => item%2 === 0);
+    var sortedArr = arr.filter(item => item % 2 === 0);
     return sortedArr;
 }
 isEven();
