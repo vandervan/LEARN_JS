@@ -48,7 +48,6 @@ function pow(x, n) {
 pow(enterX, enterN);
 
 /* Задача 4. Функция сложения двух чисел
-
  */
 function sum(a, b) {
     return a + b;
@@ -97,7 +96,7 @@ ask(
 );
  */
 function ask(question, yes, no) {
-    if (confirm(question)) yes()
+    if (confirm(question)) yes();
     else no();
 }
 
