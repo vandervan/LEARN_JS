@@ -2,8 +2,8 @@
 При помощи цикла for выведите чётные числа от 2 до 10.
 */
 for (let i = 2; i < 10; i++) {
-    if (i % 2 !== 0) continue;
-    alert(i);
+  if (i % 2 !== 0) continue;
+  alert(i);
 }
 
 /* Задача 2. Замените for на while
@@ -14,8 +14,8 @@ for (let i = 0; i < 3; i++) {
 */
 let i = 0;
 while (i < 3) {
-    alert(`number ${i}!`);
-    i++;
+  alert(`number ${i}!`);
+  i++;
 }
 
 /* Задача 3. Повторять цикл, пока ввод неверен
@@ -24,14 +24,14 @@ while (i < 3) {
 Предполагается, что посетитель вводит только числа. Предусматривать обработку нечисловых строк в этой задаче необязательно.
 */
 while (true) {
-    let userNumber = prompt('Enter value 100 or above', '');
-    if(userNumber == null) break;
-    else if (userNumber < 100) {
-        alert('Please enter 100+');
-    } else {
-        alert('Goodbye');
-        break;
-    }
+  const userNumber = prompt('Enter value 100 or above', '');
+  if (userNumber == null) break;
+  else if (userNumber < 100) {
+    alert('Please enter 100+');
+  } else {
+    alert('Goodbye');
+    break;
+  }
 }
 
 /* Задача 4. Вывести простые числа
@@ -44,10 +44,10 @@ P.S. Код также должен легко модифицироваться 
  */
 naturalNumber:
 for (let i = 2; i <= 10; i++) {
-    for (let j = 2; j < i; j++) {
-        if (i % j === 0) continue naturalNumber;
-    }
-    alert(`Natural number ${i}`);
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0) continue naturalNumber;
+  }
+  alert(`Natural number ${i}`);
 }
 
 /* Задача 5. (из доки по программе обучения)
@@ -55,7 +55,6 @@ for (let i = 2; i <= 10; i++) {
  */
 let a = 15;
 while (a >= 10) {
-    alert(a);
-    a--;
+  alert(a);
+  a--;
 }
-
