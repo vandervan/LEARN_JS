@@ -28,3 +28,5 @@ console.log(BIRTHDAY);
 */
 const age = typeof BIRTHDAY;
 console.log(age);
+
+

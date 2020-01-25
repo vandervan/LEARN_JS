@@ -1,6 +1,6 @@
 // 1. Сложение различных типов больше похоже на конкатенацию, т.к. не задано приведение типов, а метод консоль лог приводит к строке по дефолту
 const a = 12, b = "JavaScript";
-console.log (a+b); //12JavaScript
+console.log (a + b); //12JavaScript
 
 //1.1 null + string
 let emptyVariable = null;
