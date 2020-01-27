@@ -22,7 +22,7 @@ var ppz = {
  age: 30,
 };
 function isEmpty(object) {
- for(let prop in object) {
+ for (let prop in object) {
   return false;
  } 
  return true;
@@ -82,8 +82,8 @@ let menu = {
 };
 
 function multiplyNumeric(object) {
- for(let prop in object){
-  if (object[prop] % 1 == 0){
+ for(let prop in object) {
+  if (typeof (object[prop]) === "number") {
    object[prop] = object[prop] * 2;
   }
  }
