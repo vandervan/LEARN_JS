@@ -1,7 +1,6 @@
-package-lock.json
+/node_modules/
 /.vscode/
 /.idea/
-*.xml
-.eslintrc
-/node_modules/
+/LEARN_JS_TASKS/package-lock.json
 /README.md
+/.eslintrc
