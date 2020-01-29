@@ -90,6 +90,7 @@ alert(filtered); // 3,1 (совпадающие значения)
 alert(arr); // 5,3,8,1 (без изменений)
 */
 var array = [5, 3, 8, 1];
+
 function filterRange(array, a, b) {
     return array.filter(item => (a <= item && item <= b));
 }
@@ -108,6 +109,7 @@ filterRangeInPlace(arr, 1, 4); // удалены числа вне диапаз�
 alert(arr); // [3, 1]
 */
 let arr = [5, 3, 8, 1, 10, 121, 144];
+
 function filterRangeInPlace(array, a, b) {
     arr = array.filter(item => (item >= a && item <= b));
 }
@@ -118,6 +120,7 @@ let arr = [5, 2, 1, -10, 8];
 alert(arr); // 8, 5, 2, 1, -10
 */
 let arr = [5, 2, 1, -10, 8];
+
 function sortBy(array) {
     array.sort((a, b) => b - a);
 }
@@ -157,9 +160,32 @@ let result = powerCalc.calculate("2 ** 3");
 alert( result ); // 8
 Для этой задачи не нужны скобки или сложные выражения.
 Числа и оператор разделены ровно одним пробелом.
-Не лишним будет добавить обработку ошибок.
-Открыть песочницу с тестами для задачи.
 */
+function Calculator() {
+
+    this.methods = {
+        "-": (a, b) => a - b,
+        "+": (a, b) => a + b
+    };
+
+    this.calculate = function (str) {
+
+        let split = str.split(' '),
+            a = +split[0],
+            op = split[1],
+            b = +split[2]
+
+        if (!this.methods[op] || isNaN(a) || isNaN(b)) {
+            return NaN;
+        }
+
+        return this.methods[op](a, b);
+    }
+
+    this.addMethod = function (name, func) {
+        this.methods[name] = func;
+    };
+}
 
 /* Задача 10. Трансформировать в массив имён
 У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
@@ -178,10 +204,171 @@ let masha = {
 };
 
 let users = [vasya, petya, masha];
-let formattedNames = users.map(item => item.name);
-console.log(formattedNames);
+let names = users.map(item => item.name);
 
 /* Задача 11. Трансформировать в объекты
 У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
 Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
- */
+*/
+let vasya = {
+    name: "Вася",
+    surname: "Пупкин",
+    id: 1
+};
+let petya = {
+    name: "Петя",
+    surname: "Иванов",
+    id: 2
+};
+let masha = {
+    name: "Маша",
+    surname: "Петрова",
+    id: 3
+};
+
+let users = [vasya, petya, masha];
+let usersMapped = users.map(user => ({
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id
+}));
+console.log(usersMapped[0].id); // 1
+console.log(usersMapped[0].fullName); // Вася Пупкин
+
+/* Задача 12. Отсортировать пользователей по возрасту
+Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
+*/
+let vasya = {
+    name: "Вася",
+    age: 25
+};
+let petya = {
+    name: "Петя",
+    age: 30
+};
+let masha = {
+    name: "Маша",
+    age: 28
+};
+
+let arr = [vasya, petya, masha];
+
+function sortByAge(arr) {
+    arr.sort((a, b) => a.age > b.age ? 1 : -1);
+}
+sortByAge(arr);
+
+// теперь: [vasya, masha, petya]
+console.log(arr[0].name); // Вася
+console.log(arr[1].name); // Маша
+console.log(arr[2].name); // Петя
+
+/* Задача 13. Перемешайте массив
+Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива.
+Многократные прогоны через shuffle могут привести к разным последовательностям элементов. Например:
+Все последовательности элементов должны иметь одинаковую вероятность.
+Например, [1,2,3] может быть переупорядочено как [1,2,3] или [1,3,2], или [3,1,2] и т.д.,
+с равной вероятностью каждого случая.
+*/
+var arr = [1, 2, 3];
+
+function shuffle(array) {
+    array.sort(array => Math.random() - 0.5);
+}
+
+/* Задача 14. Получить средний возраст
+Напишите функцию getAverageAge(users),
+которая принимает массив объектов со свойством age и возвращает средний возраст.
+Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+*/
+let vasya = {
+    name: "Вася",
+    age: 25
+};
+let petya = {
+    name: "Петя",
+    age: 30
+};
+let masha = {
+    name: "Маша",
+    age: 29
+};
+
+let arr = [vasya, petya, masha];
+
+function getAverageAge(arr) {
+    return arr.reduce((prev, user) => prev + user.age, 0) / arr.length;
+}
+
+/* Задача 15. Оставить уникальные элементы массива
+Пусть arr – массив строк.
+Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+
+function unique(arr) {
+  ваш код 
+}
+
+let strings = ["кришна", "кришна", "харе", "харе",
+    "харе", "харе", "кришна", "кришна", ":-O"
+];
+
+alert(unique(strings)); // кришна, харе, :-O
+
+
+*/
+let strings = ["кришна", "кришна", "харе", "харе",
+    "харе", "харе", "кришна", "кришна", ":-O"
+];
+
+function unique(arr) {
+    let newArr = [];
+
+    for (let item of arr) {
+        if (!newArr.includes(item)) {
+            newArr.push(item);
+        }
+    }
+    return newArr;
+}
+
+// Задача 16. Перебор массива с выводом в консоль кажого элемента
+let testArray = [1, "Jack", 131, true];
+
+function consoleOutput(array) {
+    array.forEach(element => {
+        console.log(element);
+    });
+    return consoleOutput();
+}
+
+// Задача 17. Перобразовать массив в строку и обрaтно в массив 
+let testArray = [1, "Jack", 131, true];
+
+function arrayToString(array) {
+    return array.join(',');
+}
+
+function stringToArray(string) {
+    return string.split(',');
+}
+stringToArray("James Hetfield, Kirk Hammet, Lars Ulrich");
+
+// Задача 18. Добавить к каждому элементу массива словo hello 
+let testArray = [1, "Jack", 131, true];
+
+function addHello(array) {
+    return array.map((item) =>
+        (item + ' Hello'));
+}
+
+// Задача 19. Преобразовать числовой массив в boolean
+let numberedArray = [1, -2, 3, -4];
+
+function toBool(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (typeof (array[i]) === "number" && array[i] > 0) {
+            array[i] = true;
+        } else {
+            array[i] = false;
+        }
+    }
+}
