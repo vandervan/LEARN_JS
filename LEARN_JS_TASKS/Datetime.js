@@ -17,8 +17,8 @@ alert( getWeekDay(date) );        // нужно вывести "ВТ"
  */
 let date = new Date(2012, 0, 3);
 function getWeekDay(date) {
-   const days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
-   return days[date.getDay()];
+ const days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+ return days[date.getDay()];
 }
 console.log(getWeekDay(date));
 
@@ -28,8 +28,8 @@ console.log(getWeekDay(date));
  */
 let europeDate = new Date(2012, 0, 3);
 function getLocalDay(europeDate) {
-    const days = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
-    return days[europeDate.getDay() - 1];
+ const days = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
+ return days[europeDate.getDay() - 1];
 }
 console.log(getLocalDay(europeDate));
 
@@ -39,9 +39,9 @@ console.log(getLocalDay(europeDate));
 Функция должна надёжно работать при значении days=365 и больших значениях:
  */
 function getDateAgo(date, days) {
-    const result = date.getDate() - days;
-    date.setDate(result);
-    return date.getDate();
+ const result = date.getDate() - days;
+ date.setDate(result);
+ return date.getDate();
 }
 alert(getDateAgo(new Date(2015, 0, 2), 1));
 alert(getDateAgo(new Date(2015, 0, 2), 2));
@@ -56,7 +56,7 @@ month – месяц от 0 до 11.
 К примеру, getLastDayOfMonth(2012, 1) = 29 (високосный год, февраль).
  */
 function getLastDayOfMonth(year, month) {
-    return new Date(year, month + 1, 0).getDate();
+ return new Date(year, month + 1, 0).getDate();
 }
 alert(getLastDayOfMonth(2012, 1));
 
@@ -67,7 +67,7 @@ getSecondsToday() == 36000 // (3600 * 10)
 Функция должна работать в любой день, т.е. в ней не должно быть конкретного значения сегодняшней даты.
  */
 function getSecondsToday() {
-    return Math.round((new Date() - new Date().setHours(0, 0, 0, 0)) / 1000);
+ return Math.round((new Date() - new Date().setHours(0, 0, 0, 0)) / 1000);
 }
 getSecondsToday();
 
@@ -78,7 +78,7 @@ getSecondsToTomorrow() == 3600
 P.S. Функция должна работать в любой день, т.е. в ней не должно быть конкретного значения сегодняшней даты.
  */
 function getSecondsToTomorrow() {
-    return Math.round((new Date().setHours(24, 0, 0, 0) - new Date()) / 1000);
+ return Math.round((new Date().setHours(24, 0, 0, 0) - new Date()) / 1000);
 }
 getSecondsToTomorrow();
 
@@ -91,17 +91,17 @@ getSecondsToTomorrow();
 В противном случае, полная дата в формате "DD.MM.YY HH:mm".
 А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
  */
-var data = new Date(2016, 12, 16, 0, 0, 0, 0);
-var data = new Date(2020, 1, 30, 21, 31, 55, 13);
-function formatDate(date) {
-    if((data.getTime() - new Date().getTime()) < 1000){
-        console.log("Right now");
-    } else if ((data.getTime() - new Date().getTime()) < 60000) {
-        console.log(Math.round((data.getTime() -  new Date().getTime()) / 1000) + " seconds ago");
-    } else if ((data.getTime() - new Date().getTime()) < 3600000 ) {
-        console.log(((data.getTime() - new Date().getTime()) / 60000) + " minutes ago");
-    } else {
-        console.log(data);
-    }
+//var data = new Date(2016, 12, 16, 0, 0, 0, 0);
+var data = new Date(2020, 0, 30, 23, 03, 30);
+function formatDate(data) {
+ if ((new Date().getTime() - data.getTime()) < 1000) {
+  console.log("Right now");
+ } else if ((new Date().getTime() - data.getTime()) < 60000) {
+  console.log(Math.round((new Date().getTime() - data.getTime()) / 1000) + " seconds ago");
+ } else if ((new Date().getTime() - data.getTime()) < 3600000) {
+  console.log(Math.round((new Date().getTime() - data.getTime()) / 60000) + " minutes ago");
+ } else {
+  console.log(data);
+ }
 }
 formatDate(data);
