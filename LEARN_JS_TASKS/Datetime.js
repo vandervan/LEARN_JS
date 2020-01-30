@@ -92,7 +92,7 @@ getSecondsToTomorrow();
 А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
  */
 //var data = new Date(2016, 12, 16, 0, 0, 0, 0);
-var data = new Date(2020, 0, 30, 23, 03, 30);
+var data = new Date(2020, 0, 30, 23, 3, 30);
 function formatDate(data) {
  if ((new Date().getTime() - data.getTime()) < 1000) {
   console.log("Right now");
@@ -105,3 +105,16 @@ function formatDate(data) {
  }
 }
 formatDate(data);
+
+// Задача 9. Получить текущую дату, вывести в консоль
+function getCurrentDate() {
+ console.log(Date());
+}
+getCurrentDate();
+
+// Задача 10. Получить день, месяц и год текущей даты и по отдельности вывести в консоль
+function getParams() {
+ date =  new Date();
+ return console.log(date.getDay(), date.getMonth(), date.getFullYear());
+}
+getParams();
