@@ -1,7 +1,7 @@
+/node_modules/
 package-lock.json
 /.vscode/
 /.idea/
 *.xml
-.eslintrc
-/node_modules/
-/README.md
+*.iml
+/.eslintrc
