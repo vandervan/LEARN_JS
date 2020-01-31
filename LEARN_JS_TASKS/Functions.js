@@ -56,10 +56,9 @@ sum(1, 2);
 
 /* Задача 5. Функция определения имени(если имя  ваше, то "Привет" + имя)
  */
-let enterName = prompt('Enter your name', '');
+const enterName = prompt('Enter your name', '');
 function isName(enterName, yourName) {
-    yourName = 'Andre';
-    if (enterName == yourName){
+    if (enterName === yourName) {
         return `Hello ` + enterName;
     } else {
         return 'Wrong name';
@@ -76,10 +75,9 @@ argsType(1, '123');
 
 /* Задача 7. Функция выбора четных элементов массива(возвращает новый массив)
  */
+arr = [0, 1, 2, 3, 7, 12, 24];
 function isEven(arr) {
-    arr = [1, 2, 3, 7, 12, 24];
-    var sortedArr = arr.filter(item => item % 2 === 0);
-    return sortedArr;
+    return arr.filter(item => item % 2 === 0 && item !== 0);
 }
 isEven();
 
