@@ -4,4 +4,6 @@ package-lock.json
 /.idea/
 *.xml
 *.iml
-/.eslintrc
+/LEARN_JS_TASKS/.eslintrc
+
+
