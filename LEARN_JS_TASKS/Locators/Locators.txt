@@ -6,8 +6,7 @@ CSS                         #orb-search-q
 weather_button_Xpath       //*[@id="orb-panel-more"]/div/ul/li[11]/a
 CSS                         .orb-panel-content > ul:nth-child(2) > li:nth-child(11) > a:nth-child(1)
 
-main_block_Xpath_v1         //a[contains(@class, 'block-link')]
-main_block_Xpath_v2         //*[@id="page"]/section[3]/div/ul/li[1]/div/a
+main_block_Xpath            //*[@id="page"]/section[3]/div/ul/li[1]/div/a
 CSS                         .media--hero > a:nth-child(3)
 
 even_button_2_Xpath        //*[@id="orb-nav-links"]/ul/li[3]/a
