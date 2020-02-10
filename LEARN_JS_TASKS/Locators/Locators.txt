@@ -1,0 +1,16 @@
+BBC.com
+
+search_button_Xpath          //input[@id='orb-search-q']
+CSS                          #orb-search-q
+
+weather_button_Xpath        //*[@id="orb-panel-more"]/div/ul/li[11]/a
+CSS                         .orb-panel-content > ul:nth-child(2) > li:nth-child(11) > a:nth-child(1)
+
+main_block_Xpath            //*[@id="page"]/section[3]/div/ul/li[1]/div/a
+CSS                         .media--hero > a:nth-child(3)
+
+even_buttons_Xpath          //div[contains(@class, 'orb-nav-section')]//li[position() mod 2 = 0][not(contains(@class, 'orb-nav-hide'))]
+CSS                         header #orb-nav-links ul li:nth-child(even):not(.orb-nav-hide)
+
+date_Xpath                  //*[@id="page"]/section[2]/h2/text()
+CSS                         nodes = document.querySelectorAll(("div section.module.module--header h2.module__title span").nextSibling);
