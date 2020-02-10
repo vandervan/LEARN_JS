@@ -13,6 +13,4 @@ even_buttons_Xpath          //div[contains(@class, 'orb-nav-section')]//li[posit
 CSS                         header #orb-nav-links ul li:nth-child(even):not(.orb-nav-hide)
 
 date_Xpath                  //*[@id="page"]/section[2]/h2/text()
-CSS                         div section.module.module--header h2.module__title span
-
-
+CSS                         nodes = document.querySelectorAll(("div section.module.module--header h2.module__title span").nextSibling);
