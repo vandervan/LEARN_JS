@@ -1,7 +1,7 @@
 const {Builder, By, Key,} = require('selenium-webdriver');
 
 (async function example() {
-    let driver = await new Builder().forBrowser('firefox').build();
+    const driver = await new Builder().forBrowser('firefox').build();
     try {
         await driver.get('https://www.bbc.com');
         await driver.findElement(By.css('#orb-search-q')).sendKeys('coronavirus', Key.RETURN);
