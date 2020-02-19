@@ -1,19 +1,27 @@
-const {Builder, By, Key,} = require('selenium-webdriver');
-
-(async function example() {
-    const driver = await new Builder().forBrowser('chrome').build();
-    try {
-        await driver.get('https://www.bbc.com');
-        await driver.findElement(By.css('#orb-search-q')).sendKeys('coronavirus', Key.RETURN);
-        const isDisplay = await driver.findElement(By.id('se-searchbox-input-field')).isDisplayed();
-        console.log(isDisplay);
-        const isEnable = await driver.findElement(By.id('se-searchbox-input-field')).isEnabled();
-        console.log(isEnable);
-        await driver.findElement(By.css('[href="https://www.bbc.com/news"]')).click();
-        await driver.sleep(5000);
-
-    } finally {
-        await driver.quit();
+function waitForEnabled(element) {
+    if (element.isEnabled()) {
+        return element.click();
+    } else {
+        return  waitForEnabled();
     }
-})();
+}
 
+function waitForDisplayed(element) {
+    if (element.isDisplayed()){
+        return element.sendKeys('coronavirus', Key.RETURN);
+    } else {
+        return waitForDisplayed();
+    }
+}
+
+const {Builder, By, Key} = require('selenium-webdriver');
+
+(async function BBC_CHROME() {
+    const driver = await new Builder().forBrowser('chrome').build();
+    await driver.get('https://www.bbc.com');
+    const searchField = await driver.findElement(By.id('orb-search-q'));
+    await waitForDisplayed(searchField);
+    const newsButton = await driver.findElement(By.css('[href="https://www.bbc.com/news"]'));
+    await waitForEnabled(newsButton);
+    await driver.quit();
+})();
