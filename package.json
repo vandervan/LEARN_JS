@@ -27,6 +27,7 @@
     "fs-extra": "^8.1.0"
   },
   "dependencies": {
-    "protractor": "^5.4.2"
+    "protractor": "^5.4.2",
+    "selenium-webdriver": "^4.0.0-alpha.5"
   }
 }
