@@ -1,27 +1,33 @@
-function waitForEnabled(element) {
-    if (element.isEnabled()) {
-        return element.click();
-    } else {
-        return  waitForEnabled();
-    }
-}
+// async function isEnabled(element, wait) {
+//     let isDisplayedElm = await element.isEnabled();
+//     let i = 0;
+//     while (!isDisplayedElm && i < wait) {
+//         driver.sleep(100);
+//         isDisplayedElm = await element.isEnabled();
+//         i+=100;
+//     }
+// }
+//
+// async function isDisplayed(element, wait) {
+//     let isDisplayedElm = await element.isDisplayed();
+//     let j = 0;
+//     while (!isDisplayedElm && j < wait) {
+//         driver.sleep(100);
+//         isDisplayedElm = await element.isDisplayed();
+//         j+=100;
+//     }
+// }
 
-function waitForDisplayed(element) {
-    if (element.isDisplayed()){
-        return element.sendKeys('coronavirus', Key.RETURN);
-    } else {
-        return waitForDisplayed();
-    }
-}
-
-const {Builder, By, Key} = require('selenium-webdriver');
-
-(async function BBC_CHROME() {
+(async function BBC_Firefox() {
+    const {Builder, By, Key,} = require('selenium-webdriver');
     const driver = await new Builder().forBrowser('chrome').build();
-    await driver.get('https://www.bbc.com');
-    const searchField = await driver.findElement(By.id('orb-search-q'));
-    await waitForDisplayed(searchField);
-    const newsButton = await driver.findElement(By.css('[href="https://www.bbc.com/news"]'));
-    await waitForEnabled(newsButton);
+    await driver.get('https://bbc.com');
+    const search = await driver.findElement(By.id('orb-search-q'));
+    await isEnabled(search, 10000);
+    await search.sendKeys('coronavirus', Key.RETURN);
+    const link = await driver.findElement(By.css('[href="https://www.bbc.com/news"]'));
+    await isDisplayed(link, 10000);
+    await link.click();
     await driver.quit();
+
 })();

@@ -1,14 +1,33 @@
-(async function BBC_FIREFOX() {
-    const {Builder, By, Key} = require('selenium-webdriver');
-    const driver = new Builder().forBrowser('firefox').build();
-        await driver.get('https://www.bbc.com');
-        await driver.wait(function waitForEnabled() {
-            return driver.findElement(By.id('orb-search-q')).isEnabled();
-        }, 10000);
-        await driver.findElement(By.id('orb-search-q')).sendKeys('coronavirus', Key.RETURN);
-        await driver.wait(function waitForDisplayed() {
-            return driver.findElement(By.css('[href="https://www.bbc.com/news"]')).isDisplayed();
-        }, 10000);
-        await driver.findElement(By.css('[href="https://www.bbc.com/news"]')).click();
-        await driver.quit();
+// async function isEnabled(element, wait) {
+//     let isDisplayedElm = await element.isEnabled();
+//     let i = 0;
+//     while (!isDisplayedElm && i < wait) {
+//         driver.sleep(100);
+//         isDisplayedElm = await element.isEnabled();
+//         i+=100;
+//     }
+// }
+//
+// async function isDisplayed(element, wait) {
+//     let isDisplayedElm = await element.isDisplayed();
+//     let j = 0;
+//     while (!isDisplayedElm && j < wait) {
+//         driver.sleep(100);
+//         isDisplayedElm = await element.isDisplayed();
+//         j+=100;
+//     }
+// }
+
+(async function BBC_Firefox() {
+    const {Builder, By, Key,} = require('selenium-webdriver');
+    const driver = await new Builder().forBrowser('Firefox').build();
+    await driver.get('https://bbc.com');
+    const search = await driver.findElement(By.id('orb-search-q'));
+    await isEnabled(search, 10000);
+    await search.sendKeys('coronavirus', Key.RETURN);
+    const link = await driver.findElement(By.css('[href="https://www.bbc.com/news"]'));
+    await isDisplayed(link, 10000);
+    await link.click();
+    await driver.quit();
+
 })();
