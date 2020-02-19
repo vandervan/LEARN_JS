@@ -7,7 +7,7 @@ function waitForEnabled(element) {
 }
 
 function waitForDisplayed(element) {
-    if (element.isDisplayed()){
+    if (element.isDisplayed()) {
        return element.sendKeys('coronavirus', Key.RETURN);
     } else {
        return waitForDisplayed();
