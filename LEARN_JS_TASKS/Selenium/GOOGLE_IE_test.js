@@ -20,8 +20,8 @@ const {Builder, By, Key,} = require('selenium-webdriver');
 
         await driver.get('https://google.com');
         const search = await driver.findElement(By.name('q'));
-        await waitForDisplayed(search); //.sendKeys('coronavirus', Key.RETURN);
-        const link = await driver.findElement(By.partialLinkText('Europa')); //.click();
+        await waitForDisplayed(search);
+        const link = await driver.findElement(By.partialLinkText('Europa'));
         await waitForEnabled(link);
         await driver.quit();
 
