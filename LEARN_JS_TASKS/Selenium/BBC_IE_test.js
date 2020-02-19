@@ -26,4 +26,3 @@ const {Builder, By, Key,} = require('selenium-webdriver');
         await driver.quit();
 
 })();
-
