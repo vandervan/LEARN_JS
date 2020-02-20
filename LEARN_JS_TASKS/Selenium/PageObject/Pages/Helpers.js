@@ -1,4 +1,4 @@
- async function isDisplayed(element, wait) {
+ async function waitForDisplayed(element, wait) {
         let isDisplayedElm = await
         element.isDisplayed();
         let j = 0;
@@ -10,7 +10,7 @@
         }
     }
 
- async function isEnabled(element, wait) {
+ async function waitForEnabled(element, wait) {
         let isDisplayedElm = await
         element.isEnabled();
         let i = 0;

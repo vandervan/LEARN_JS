@@ -1,4 +1,4 @@
-async function isEnabled(element, wait) {
+async function waitForEnabled(element, wait) {
     let isDisplayedElm = await element.isEnabled();
     let i = 0;
     while (!isDisplayedElm && i < wait) {
@@ -8,7 +8,7 @@ async function isEnabled(element, wait) {
     }
 }
 
-async function isDisplayed(element, wait) {
+async function waitForDisplayed(element, wait) {
     let isDisplayedElm = await element.isDisplayed();
     let j = 0;
     while (!isDisplayedElm && j < wait) {
@@ -21,13 +21,13 @@ async function isDisplayed(element, wait) {
 (async function BBC_Firefox() {
 
         const {Builder, By, Key,} = require('selenium-webdriver');
-        const driver = await new Builder().forBrowser('chrome').build();
+        const driver = await new Builder().forBrowser('firefox').build();
         await driver.get('https://bbc.com');
         const search = await driver.findElement(By.id('orb-search-q'));
-        await isEnabled(search, 10000);
+        await waitForEnabled(search, 10000);
         await search.sendKeys('coronavirus', Key.RETURN);
         const link = await driver.findElement(By.css('[href="https://www.bbc.com/news"]'));
-        await isDisplayed(link, 10000);
+        await waitForDisplayed(link, 10000);
         await link.click();
         await driver.quit();
 
