@@ -4,6 +4,8 @@
   "description": "NodeJS homework",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "eslint:dump": "eslint --print-config ./.eslintrc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,11 +13,8 @@
     "url": "git+https://github.com/vandervan/LEARN_JS.git"
   },
   "keywords": [
-    "package.json",
-    "npm",
     "NodeJS",
-    "Homework",
-    "#1"
+    "Homework"
   ],
   "author": "Arthur 'vandervan' Krivitsky",
   "license": "ISC",
@@ -24,12 +23,24 @@
   },
   "homepage": "https://github.com/vandervan/LEARN_JS#readme",
   "devDependencies": {
-    "fs-extra": "^8.1.0"
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-optimize-regex": "^1.1.7",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "fs-extra": "^8.1.0",
+    "typescript": "^3.8.2"
   },
   "dependencies": {
+    "@types/jasmine": "^3.5.7",
     "chromedriver": "^80.0.1",
+    "eslint-config-prettier": "^6.10.0",
     "geckodriver": "^1.19.1",
-    "protractor": "^5.4.2",
-    "selenium-webdriver": "^4.0.0-alpha.5"
+    "jasmine": "^3.5.0",
+    "jasmine-core": "^3.5.0",
+    "protractor": "^5.4.2"
   }
 }
