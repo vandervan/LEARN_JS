@@ -1,29 +1,15 @@
-// spec.js
-describe('Protractor Demo App', function() {
-    var firstNumber = element(by.model('first'));
-    var secondNumber = element(by.model('second'));
-    var goButton = element(by.id('gobutton'));
-    var latestResult = element(by.binding('latest'));
-    var history = element.all(by.repeater('result in memory'));
+// spec.ts
+describe('test bbc', () => {
+	it('perehod v poisk', async () => {
+		await browser.waitForAngularEnabled(false)
+		await browser.get('https://bbc.com')
+		const search = await element(by.id('orb-search-q'))
+		await search.sendKeys('corona virus')
+		const link = await element(by.css('[href="https://www.bbc.com/news"]'))
+		await link.click()
+		// eslint-disable-next-line @typescript-eslint/unbound-method
+		expect(await link.isEnabled()).toBe(true)
+	})
+})
 
-    function add(a, b) {
-        firstNumber.sendKeys(a);
-        secondNumber.sendKeys(b);
-        goButton.click();
-    }
 
-    beforeEach(function() {
-        browser.get('http://juliemr.github.io/protractor-demo/');
-    });
-
-    it('should have a history', function() {
-        add(1, 2);
-        add(3, 4);
-
-        expect(history.count()).toEqual(2);
-
-        add(5, 6);
-
-        expect(history.count()).toEqual(3);
-    });
-});

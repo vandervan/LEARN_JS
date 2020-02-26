@@ -4,7 +4,7 @@
   "description": "NodeJS homework",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "eslint": "eslint  --ext .js,.jsx,.ts,.tsx src/",
     "eslint:dump": "eslint --print-config ./.eslintrc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@types/jasmine": "^3.5.7",
+    "@types/jasminewd2": "^2.0.8",
     "chromedriver": "^80.0.1",
     "eslint-config-prettier": "^6.10.0",
     "geckodriver": "^1.19.1",
