@@ -1,11 +1,12 @@
-//Page Object - проба пера
+// Page Object - проба пера
 const bbcMainPage = function () {
 	const search = element(by.id('orb-search-q'))
 	const submitBtn = element(by.id('orb-search-button'))
 	const newsBtn = element(by.css('[href="https://www.bbc.com/news"]'))
-	this.get = async function () {
+	const myUrl = 'https://www.bbc.com/'
+	this.openPage = async function () {
 		await browser.waitForAngularEnabled(false)
-		await browser.get('https://www.bbc.com/')
+		await browser.get(myUrl)
 	}
 	this.inputField = async function (yourString) {
 		await search.sendKeys(yourString)
