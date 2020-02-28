@@ -14,6 +14,5 @@ describe('assertions homework', () => {
 		expect(firstString).toContain(secondString)
 		expect(firstArray).toEqual(secondArray)
 		expect(firstStringArray).toEqual(secondStringArray)
-
 	})
 })
