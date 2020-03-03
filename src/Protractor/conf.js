@@ -1,17 +1,17 @@
 // conf.js
 exports.config = {
 	framework: 'jasmine',
-	seleniumAddress: 'http://localhost:4444/wd/hub',
+	//seleniumAddress: 'http://localhost:4444/wd/hub',
 	SELENIUM_PROMISE_MANAGER: false,
 	directConnect: true,
 	multiCapabilities: [
 		{
 			browserName: 'chrome',
 		}, {
-			browserName: 'firefox',
+			//browserName: 'firefox',
 		},
 	],
-	specs: ['spec.ts'],
+	specs: ['yandex_cities.ts'],
 	jasmineNodeOpts: {
 		showColors: true,
 	},

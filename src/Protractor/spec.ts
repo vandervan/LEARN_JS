@@ -3,10 +3,10 @@ const bbcMainPage = require('C:\\Users\\anduser\\Documents\\LEARN_JS\\src\\page_
 
 describe('PROTRACTOR BBC TEST', () => {
 	it('Main Page BBC.com', async () => {
-		await bbcMainPage.openPage()
-		await bbcMainPage.inputField('coronavirus')
-		await bbcMainPage.submitInputField()
-		await bbcMainPage.pressNews()
+		await bbcMainPage.openPage();
+		await bbcMainPage.inputField('coronavirus');
+		await bbcMainPage.submitInputField();
+		await bbcMainPage.pressNews();
 		expect(await browser.getTitle()).toBe('Home - BBC News')
 	})
-})
+});
