@@ -1,5 +1,5 @@
 // spec.ts
-const bbcMainPage = require('C:\\Users\\anduser\\Documents\\LEARN_JS\\src\\page_objects\\bbc_main_page.ts')
+const bbcMainPage = require('C:\\Users\\anduser\\Documents\\LEARN_JS\\src\\page_objects\\bbc_main_page.ts');
 
 describe('PROTRACTOR BBC TEST', () => {
 	it('Main Page BBC.com', async () => {
