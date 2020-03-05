@@ -1,4 +1,4 @@
-import {element, by} from "protractor/built";
+import { element, by } from "protractor/built";
 
 export const market = {
     checkBox4Ram: element(by.css('input[type=\'checkbox\'][tabindex=\'0\'][name=\'Оперативная память 4 Гб\']')),
@@ -10,4 +10,4 @@ export const market = {
     searchField: element(by.css('#header-search')),
     moneyFromField: element(by.css('#glpricefrom')),
     dropdownList: element(by.css('.suggest2-rich-item__text'))
-}
+};

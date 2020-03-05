@@ -1,6 +1,6 @@
-import {browser} from "protractor/built";
-import {YandexMarketMethods} from "../page_objects/marketMethods";
-import {market} from "../page_objects/market";
+import { browser } from "protractor/built";
+import { YandexMarketMethods } from "../page_objects/marketMethods";
+import { market } from "../page_objects/market";
 
 
 describe('Basic controls: ', async () => {

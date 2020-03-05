@@ -1,5 +1,5 @@
-import {browser} from "protractor/built";
-import {market} from "./market";
+import { browser } from "protractor/built";
+import { market } from "./market";
 
 export class YandexMarketMethods {
 
