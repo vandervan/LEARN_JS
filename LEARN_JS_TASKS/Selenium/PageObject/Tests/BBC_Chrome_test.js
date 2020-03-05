@@ -17,7 +17,7 @@ async function waitForDisplayed(element, wait) {
 		j += 100
 	}
 }
-// @jasmine+protractor PageObject Assert ALL ASSERTIONS
+
 (async function BBC_Firefox() {
 	const { Builder, By, Key } = require('selenium-webdriver')
 	const driver = await new Builder().forBrowser('chrome').build()

@@ -1,4 +1,6 @@
 // spec.ts
+import {browser} from "protractor";
+
 const bbcMainPage = require('C:\\Users\\anduser\\Documents\\LEARN_JS\\src\\page_objects\\bbc_main_page.ts');
 
 describe('PROTRACTOR BBC TEST', () => {

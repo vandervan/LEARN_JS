@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2018",
-    "sourceMap": true
+    "target": "es6",
+    "moduleResolution": "node",
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "outDir": "outputJS",
+    "types": ["jasmine", "node"]
   },
   "exclude": [
     "node_modules"

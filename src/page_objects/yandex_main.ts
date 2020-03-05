@@ -1,26 +1,54 @@
-//
-// const yandexMain = function () {
-//     const settingsBtn = element(by.css('.geolink__reg'));
-//     const changeCity = element(by.id('city__front-input'));
-//     const moreBtn = element(by.css('div.home-tabs__more'));
-//     const myUrl = 'https://yandex.by/';
-//     //const myRedirectedUrl = 'https://yandex.by/tune/geo/';
-//     this.openPage = async function (string) {
-//         await browser.waitForAngularEnabled(false);
-//         await browser.get(string)
-//     };
-//     this.cityBtn = async function () {
-//         await settingsBtn.click()
-//     };
-//     this.cityChanger = async function (string) {
-//         await changeCity.sendKeys(string)
-//     };
-//     this.confirmCity = async function () {
-//         await changeCity.submit()
-//     }
-//     this.pressMoreBtn = async function () {
-//         await moreBtn.click()
-//     }
-// };
-// module.exports = new yandexMain();
-//
+import { yandex_redirected_locators } from "./yandex_redirected_locators";
+import { yandex_main_locators } from "./yandex_main_locators";
+import { browser, by, element } from "protractor/built";
+
+export  class Methods {
+
+     static async saveLocation() {
+        await yandex_main_locators.location.click();
+    }
+
+     static async  waitForEnabled(element, wait) {
+        let isDisplayedElm = await element.isEnabled();
+        let i = 0;
+        while (!isDisplayedElm && i < wait) {
+            browser.sleep(100);
+            isDisplayedElm = await element.isEnabled();
+            i += 100
+        }
+    }
+
+     static async  waitForDisplayed(element, wait) {
+        let isDisplayedElm = await element.isDisplayed();
+        let j = 0;
+        while (!isDisplayedElm && j < wait) {
+            browser.sleep(100);
+            isDisplayedElm = await element.isDisplayed();
+            j += 100
+        }
+    }
+
+     static async sendCity(cityName) {
+        await yandex_main_locators.location.click();
+        await yandex_redirected_locators.city.clear();
+        await yandex_redirected_locators.city.sendKeys(cityName);
+        browser.sleep(3000);
+        await yandex_redirected_locators.dropdownFirstElement.click();
+    }
+
+     static async getValueFromLondonMore() {
+        await yandex_main_locators.moreTab.click();
+        const dataFromTab = element.all(by.css('".home-tabs__more .home-tabs__more-top .home-tabs__more-item[role=\'menuitem\'] a.home-link_black_yes"'));
+        const valuesLondon =  await dataFromTab.getText();
+        browser.sleep(3000);
+        return valuesLondon;
+    }
+
+     static async getDataFromParisMore() {
+        await yandex_main_locators.moreTab.click();
+        const dataFromMoreTab = element.all(by.css('.home-tabs__more .home-tabs__more-top .home-tabs__more-item[role=\'menuitem\'] a.home-link_black_yes'));
+        const valuesParis = await dataFromMoreTab.getText();
+        browser.sleep(3000);
+        return valuesParis;
+    }
+}
