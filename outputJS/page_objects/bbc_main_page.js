@@ -10,16 +10,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Page Object - проба пера
-const protractor_1 = require("protractor");
+const built_1 = require("protractor/built");
 const bbcMainPage = function () {
-    const search = protractor_1.element(protractor_1.by.id('orb-search-q'));
-    const submitBtn = protractor_1.element(protractor_1.by.id('orb-search-button'));
-    const newsBtn = protractor_1.element(protractor_1.by.css('[href="https://www.bbc.com/news"]'));
+    const search = built_1.element(built_1.by.id('orb-search-q'));
+    const submitBtn = built_1.element(built_1.by.id('orb-search-button'));
+    const newsBtn = built_1.element(built_1.by.css('[href="https://www.bbc.com/news"]'));
     const myUrl = 'https://www.bbc.com/';
     this.openPage = function () {
         return __awaiter(this, void 0, void 0, function* () {
-            yield protractor_1.browser.waitForAngularEnabled(false);
-            yield protractor_1.browser.get(myUrl);
+            yield built_1.browser.waitForAngularEnabled(false);
+            yield built_1.browser.get(myUrl);
         });
     };
     this.inputField = function (yourString) {

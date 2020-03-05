@@ -1,5 +1,5 @@
 // Page Object - проба пера
-import {browser, by, element} from "protractor";
+import {browser, by, element} from "protractor/built";
 
 const bbcMainPage = function () {
 	const search = element(by.id('orb-search-q'));

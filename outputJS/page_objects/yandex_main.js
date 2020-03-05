@@ -13,7 +13,7 @@ const yandex_redirected_locators_1 = require("./yandex_redirected_locators");
 const yandex_main_locators_1 = require("./yandex_main_locators");
 const built_1 = require("protractor/built");
 class Methods {
-    static saveLocation() {
+    static pressLocationBtn() {
         return __awaiter(this, void 0, void 0, function* () {
             yield yandex_main_locators_1.yandex_main_locators.location.click();
         });
@@ -40,19 +40,37 @@ class Methods {
             }
         });
     }
+    static moveDriverToNewTab() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield built_1.browser.getAllWindowHandles().then(function (handles) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    yield built_1.browser.switchTo().window(handles[handles.length - 1]);
+                });
+            });
+        });
+    }
     static sendCity(cityName) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield yandex_main_locators_1.yandex_main_locators.location.click();
+            yield this.moveDriverToNewTab();
             yield yandex_redirected_locators_1.yandex_redirected_locators.city.clear();
             yield yandex_redirected_locators_1.yandex_redirected_locators.city.sendKeys(cityName);
-            built_1.browser.sleep(3000);
+            yield built_1.browser.sleep(500);
+            yield yandex_redirected_locators_1.yandex_redirected_locators.dropdownFirstElement.click();
+        });
+    }
+    static sendCityParis(cityName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.moveDriverToNewTab();
+            yield yandex_redirected_locators_1.yandex_redirected_locators.city.clear();
+            yield yandex_redirected_locators_1.yandex_redirected_locators.city.sendKeys(cityName);
+            yield built_1.browser.sleep(500);
             yield yandex_redirected_locators_1.yandex_redirected_locators.dropdownFirstElement.click();
         });
     }
     static getValueFromLondonMore() {
         return __awaiter(this, void 0, void 0, function* () {
             yield yandex_main_locators_1.yandex_main_locators.moreTab.click();
-            const dataFromTab = built_1.element.all(built_1.by.css('".home-tabs__more .home-tabs__more-top .home-tabs__more-item[role=\'menuitem\'] a.home-link_black_yes"'));
+            const dataFromTab = built_1.element.all(built_1.by.css('.home-tabs__more .home-tabs__more-top .home-tabs__more-item[role=\'menuitem\'] a.home-link_black_yes'));
             const valuesLondon = yield dataFromTab.getText();
             built_1.browser.sleep(3000);
             return valuesLondon;

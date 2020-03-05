@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 // spec.ts
 const protractor_1 = require("protractor");
-const bbcMainPage = require('C:\\Users\\anduser\\Documents\\LEARN_JS\\src\\page_objects\\bbc_main_page.ts');
+const bbcMainPage = require('C:\\Users\\Vandervan\\WebstormProjects\\LEARN_JS\\src\\page_objects\\bbc_main_page.ts');
 describe('PROTRACTOR BBC TEST', () => {
     it('Main Page BBC.com', () => __awaiter(void 0, void 0, void 0, function* () {
         yield bbcMainPage.openPage();

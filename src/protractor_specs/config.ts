@@ -3,10 +3,10 @@ const chrome = require('selenium-webdriver/chrome');
 const options = new chrome.Options();
 
 export let config: Config = {
-	framework: 'jasmine',
+	framework: 'jasmine2',
 	seleniumAddress: 'http://localhost:4444/wd/hub',
 	SELENIUM_PROMISE_MANAGER: false,
-	//directConnect: true,
+	directConnect: false,
 	capabilities:
 		{
 			browserName: 'chrome',
@@ -19,6 +19,10 @@ export let config: Config = {
 	},
 
 	onPrepare: () => {
+		let AllureReporter = require('jasmine-allure-reporter');
+		jasmine.getEnv().addReporter(new AllureReporter ({
+			resultsDir: 'allure-results'
+		}));
 		let globals = require('protractor');
 		let browser = globals.browser;
 		browser.manage().window().maximize();

@@ -18,10 +18,12 @@ describe('More tab', () => __awaiter(void 0, void 0, void 0, function* () {
         yield built_1.browser.get('https://yandex.by/');
     }));
     it('compare two tabs London and Paris', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield yandex_main_1.Methods.saveLocation();
+        yield yandex_main_1.Methods.pressLocationBtn();
         yield yandex_main_1.Methods.sendCity('Лондон');
         const arrayLondon = yield yandex_main_1.Methods.getValueFromLondonMore();
-        yield yandex_main_1.Methods.sendCity('Париж');
+        yield yandex_main_1.Methods.pressLocationBtn();
+        yield yandex_main_1.Methods.sendCityParis('Париж');
+        //await browser.sleep(1000);
         const arrayParis = yield yandex_main_1.Methods.getDataFromParisMore();
         expect(arrayLondon).toEqual(arrayParis);
     }));

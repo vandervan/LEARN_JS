@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Protractor + Jasmine + Typescript testing framework",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tsc": "tsc",
+    "webdriver-manager": "webdriver-manager start --standalone"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vandervan/LEARN_JS.git"
@@ -32,6 +35,7 @@
   "devDependencies": {
     "jasmine-expect": "^4.0.3",
     "typescript": "^3.8.3",
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.6.2",
+    "jasmine-allure-reporter": "^1.0.2"
   }
 }
