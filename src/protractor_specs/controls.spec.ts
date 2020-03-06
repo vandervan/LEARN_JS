@@ -1,33 +1,25 @@
 import { browser } from "protractor/built";
-import { YandexMarketMethods } from "../page_objects/marketMethods";
-import { market } from "../page_objects/market";
+import { onlinerMethods } from "../page_objects/onlinerMethods";
+import { Helpers } from "../page_objects/Helpers";
 
 
 describe('Basic controls: ', async () => {
     beforeEach(async () => {
         await browser.waitForAngularEnabled(false);
-        await browser.get('https://market.yandex.by/catalog/54726/list?local-offers-first=0&deliveryincluded=0&onstock=1');
-        browser.sleep(25000);
+        await browser.get('https://catalog.onliner.by/notebook');
+        await browser.sleep(5000);
     });
 
-    it('Scroll + (un)check', async () => {
-        await YandexMarketMethods.moveMeToElement(market.checkBox4Ram);
-        await YandexMarketMethods.clickOn(market.checkBox4Ram);
-        await YandexMarketMethods.clickOn(market.checkBox4Ram);
+    it('Scroll, Checkbox', async () => {
+        await onlinerMethods.scroll(Helpers.help);
+        await browser.sleep(1000);
+        await onlinerMethods.clickIt(Helpers.checkBox4K);
+        await browser.sleep(2000);
+        await onlinerMethods.clickIt(Helpers.checkBox4K);
     });
 
-    it('Click on Radio btn', async () => {
-        await YandexMarketMethods.clickOn(market.radioBtn4Stars);
-    });
-
-    it('Вводим цену и потом выводим в консоль класс и значение', async () => {
-        await YandexMarketMethods.putText('400', market.moneyFromField);
-        await YandexMarketMethods.getTextFrom(market.moneyFromField);
-        browser.sleep(20000);
-    });
-
-    it('Вводим слово в поиск, нажимаем на значение из дропдауна', async () => {
-        await YandexMarketMethods.DropDown('apple', market.globalSearch);
+    it('DropDown', async () => {
+        await onlinerMethods.DropDown();
     });
 
 });

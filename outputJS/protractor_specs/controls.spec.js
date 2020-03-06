@@ -10,28 +10,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const built_1 = require("protractor/built");
-const marketMethods_1 = require("../page_objects/marketMethods");
-const market_1 = require("../page_objects/market");
+const onlinerMethods_1 = require("../page_objects/onlinerMethods");
+const Helpers_1 = require("../page_objects/Helpers");
 describe('Basic controls: ', () => __awaiter(void 0, void 0, void 0, function* () {
     beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
         yield built_1.browser.waitForAngularEnabled(false);
-        yield built_1.browser.get('https://market.yandex.by/catalog/54726/list?local-offers-first=0&deliveryincluded=0&onstock=1');
-        built_1.browser.sleep(25000);
+        yield built_1.browser.get('https://catalog.onliner.by/notebook');
+        yield built_1.browser.sleep(5000);
     }));
-    it('Scroll + (un)check', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield marketMethods_1.YandexMarketMethods.moveMeToElement(market_1.market.checkBox4Ram);
-        yield marketMethods_1.YandexMarketMethods.clickOn(market_1.market.checkBox4Ram);
-        yield marketMethods_1.YandexMarketMethods.clickOn(market_1.market.checkBox4Ram);
+    it('Scroll, Checkbox', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield onlinerMethods_1.onlinerMethods.scroll(Helpers_1.Helpers.help);
+        yield built_1.browser.sleep(1000);
+        yield onlinerMethods_1.onlinerMethods.clickIt(Helpers_1.Helpers.checkBox4K);
+        yield built_1.browser.sleep(2000);
+        yield onlinerMethods_1.onlinerMethods.clickIt(Helpers_1.Helpers.checkBox4K);
     }));
-    it('Click on Radio btn', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield marketMethods_1.YandexMarketMethods.clickOn(market_1.market.radioBtn4Stars);
-    }));
-    it('Вводим цену и потом выводим в консоль класс и значение', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield marketMethods_1.YandexMarketMethods.putText('400', market_1.market.moneyFromField);
-        yield marketMethods_1.YandexMarketMethods.getTextFrom(market_1.market.moneyFromField);
-        built_1.browser.sleep(20000);
-    }));
-    it('Вводим слово в поиск, нажимаем на значение из дропдауна', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield marketMethods_1.YandexMarketMethods.DropDown('apple', market_1.market.globalSearch);
+    it('DropDown', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield onlinerMethods_1.onlinerMethods.DropDown();
     }));
 }));

@@ -1,4 +1,4 @@
-import { by, element } from "protractor";
+import { element, by } from "protractor";
 
 export const yandex_main_locators = {
     location: element(by.css('span.geolink__reg')),

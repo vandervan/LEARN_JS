@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// spec.ts
 const built_1 = require("protractor/built");
 const yandex_main_1 = require("../page_objects/yandex_main");
 describe('More tab', () => __awaiter(void 0, void 0, void 0, function* () {
@@ -23,7 +22,6 @@ describe('More tab', () => __awaiter(void 0, void 0, void 0, function* () {
         const arrayLondon = yield yandex_main_1.Methods.getValueFromLondonMore();
         yield yandex_main_1.Methods.pressLocationBtn();
         yield yandex_main_1.Methods.sendCityParis('Париж');
-        //await browser.sleep(1000);
         const arrayParis = yield yandex_main_1.Methods.getDataFromParisMore();
         expect(arrayLondon).toEqual(arrayParis);
     }));
