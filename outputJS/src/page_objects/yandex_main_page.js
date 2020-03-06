@@ -9,35 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const yandex_redirected_locators_1 = require("./yandex_redirected_locators");
-const yandex_main_locators_1 = require("./yandex_main_locators");
+const yandex_redirected_locators_1 = require("../locators/yandex_redirected_locators");
+const yandex_main_locators_1 = require("../locators/yandex_main_locators");
 const built_1 = require("protractor/built");
 class Methods {
     static pressLocationBtn() {
         return __awaiter(this, void 0, void 0, function* () {
             yield yandex_main_locators_1.yandex_main_locators.location.click();
-        });
-    }
-    static waitForEnabled(element, wait) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let isDisplayedElm = yield element.isEnabled();
-            let i = 0;
-            while (!isDisplayedElm && i < wait) {
-                built_1.browser.sleep(100);
-                isDisplayedElm = yield element.isEnabled();
-                i += 100;
-            }
-        });
-    }
-    static waitForDisplayed(element, wait) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let isDisplayedElm = yield element.isDisplayed();
-            let j = 0;
-            while (!isDisplayedElm && j < wait) {
-                built_1.browser.sleep(100);
-                isDisplayedElm = yield element.isDisplayed();
-                j += 100;
-            }
         });
     }
     static moveDriverToNewTab() {
@@ -49,7 +27,7 @@ class Methods {
             });
         });
     }
-    static sendCity(cityName) {
+    static sendCityLondon(cityName) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.moveDriverToNewTab();
             yield yandex_redirected_locators_1.yandex_redirected_locators.city.clear();

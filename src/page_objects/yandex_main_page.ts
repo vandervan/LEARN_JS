@@ -1,31 +1,11 @@
-import { yandex_redirected_locators } from "./yandex_redirected_locators";
-import { yandex_main_locators } from "./yandex_main_locators";
+import { yandex_redirected_locators } from "../locators/yandex_redirected_locators";
+import { yandex_main_locators } from "../locators/yandex_main_locators";
 import { browser, by, element } from "protractor/built";
 
-export  class Methods {
+export class Methods {
 
      static async pressLocationBtn() {
         await yandex_main_locators.location.click();
-    }
-
-     static async  waitForEnabled(element, wait) {
-        let isDisplayedElm = await element.isEnabled();
-        let i = 0;
-        while (!isDisplayedElm && i < wait) {
-            browser.sleep(100);
-            isDisplayedElm = await element.isEnabled();
-            i += 100
-        }
-    }
-
-     static async  waitForDisplayed(element, wait) {
-        let isDisplayedElm = await element.isDisplayed();
-        let j = 0;
-        while (!isDisplayedElm && j < wait) {
-            browser.sleep(100);
-            isDisplayedElm = await element.isDisplayed();
-            j += 100
-        }
     }
 
      static async moveDriverToNewTab() {
@@ -34,7 +14,7 @@ export  class Methods {
          });
      }
 
-     static async sendCity(cityName :string) {
+     static async sendCityLondon(cityName :string) {
         await this.moveDriverToNewTab();
         await yandex_redirected_locators.city.clear();
         await yandex_redirected_locators.city.sendKeys(cityName);
@@ -42,13 +22,13 @@ export  class Methods {
         await yandex_redirected_locators.dropdownFirstElement.click();
     }
 
-    static async sendCityParis(cityName :string) {
+     static async sendCityParis(cityName :string) {
         await this.moveDriverToNewTab();
         await yandex_redirected_locators.city.clear();
         await yandex_redirected_locators.city.sendKeys(cityName);
         await browser.sleep(500);
         await yandex_redirected_locators.dropdownFirstElement.click();
-    }
+     }
 
      static async getValueFromLondonMore() {
         await yandex_main_locators.moreTab.click();

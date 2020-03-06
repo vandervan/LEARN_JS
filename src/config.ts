@@ -4,15 +4,15 @@ const options = new chrome.Options();
 
 export let config: Config = {
 	framework: 'jasmine2',
-	seleniumAddress: 'http://localhost:4444/wd/hub',
+	//seleniumAddress: 'http://localhost:4444/wd/hub',
 	SELENIUM_PROMISE_MANAGER: false,
-	directConnect: false,
+	directConnect: true,
 	capabilities:
 		{
 			browserName: 'chrome',
 		},
 
-	specs: ['yandex_cities_spec.js'],
+	specs: [''],
 	jasmineNodeOpts: {
 		showColors: true,
 		defaultTimeoutInterval: 90000

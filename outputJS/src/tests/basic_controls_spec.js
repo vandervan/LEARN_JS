@@ -10,19 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const built_1 = require("protractor/built");
-const yandex_main_1 = require("../page_objects/yandex_main");
-describe('More tab', () => __awaiter(void 0, void 0, void 0, function* () {
+const onliner_main_page_1 = require("../page_objects/onliner_main_page");
+const onliner_main_page_locators_1 = require("../locators/onliner_main_page_locators");
+describe('Basic controls: ', () => __awaiter(void 0, void 0, void 0, function* () {
     beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
         yield built_1.browser.waitForAngularEnabled(false);
-        yield built_1.browser.get('https://yandex.by/');
+        yield built_1.browser.get('https://catalog.onliner.by/notebook');
     }));
-    it('compare two tabs London and Paris', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield yandex_main_1.Methods.pressLocationBtn();
-        yield yandex_main_1.Methods.sendCity('Лондон');
-        const arrayLondon = yield yandex_main_1.Methods.getValueFromLondonMore();
-        yield yandex_main_1.Methods.pressLocationBtn();
-        yield yandex_main_1.Methods.sendCityParis('Париж');
-        const arrayParis = yield yandex_main_1.Methods.getDataFromParisMore();
-        expect(arrayLondon).toEqual(arrayParis);
+    it('Scroll, Checkbox', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield onliner_main_page_1.onliner_main_page.scroll(onliner_main_page_locators_1.Onliner_main_page_locators.help);
+        yield onliner_main_page_1.onliner_main_page.clickIt(onliner_main_page_locators_1.Onliner_main_page_locators.checkBox4K);
+        yield onliner_main_page_1.onliner_main_page.clickIt(onliner_main_page_locators_1.Onliner_main_page_locators.checkBox4K);
+    }));
+    it('DropDown', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield onliner_main_page_1.onliner_main_page.DropDown();
     }));
 }));

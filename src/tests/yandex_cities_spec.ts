@@ -1,5 +1,5 @@
 import {browser} from "protractor/built";
-import {Methods} from "../page_objects/yandex_main";
+import {Methods} from "../page_objects/yandex_main_page";
 
 describe('More tab', async () =>{
     beforeEach(async () => {
@@ -8,7 +8,7 @@ describe('More tab', async () =>{
     });
     it('compare two tabs London and Paris', async() => {
         await Methods.pressLocationBtn();
-        await Methods.sendCity('Лондон');
+        await Methods.sendCityLondon('Лондон');
         const arrayLondon = await Methods.getValueFromLondonMore();
         await Methods.pressLocationBtn();
         await Methods.sendCityParis('Париж');
