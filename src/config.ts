@@ -1,18 +1,19 @@
-import { Config } from "protractor/built";
+import {Config} from 'protractor';
 const chrome = require('selenium-webdriver/chrome');
 const options = new chrome.Options();
 
 export let config: Config = {
 	framework: 'jasmine2',
 	//seleniumAddress: 'http://localhost:4444/wd/hub',
-	SELENIUM_PROMISE_MANAGER: false,
+	SELENIUM_PROMISE_MANAGER: true,
 	directConnect: true,
 	capabilities:
 		{
 			browserName: 'chrome',
 		},
 
-	specs: [''],
+	specs: ['dist/tests/yandex_cities_spec.js,' +
+	'dist/tests/controls_yandex_spec.js'],
 	jasmineNodeOpts: {
 		showColors: true,
 		defaultTimeoutInterval: 90000
