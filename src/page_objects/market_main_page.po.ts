@@ -37,7 +37,4 @@ export class marketMethods {
             await browser.actions().mouseMove(dropdownBtn).click().perform();
         browser.sleep(5000);
     }
-
-
-
 }
