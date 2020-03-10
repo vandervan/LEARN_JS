@@ -1,10 +1,17 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2018",
-    "sourceMap": true
+    "module": "CommonJS",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "types": ["Jasmine", "Node"],
+    "maxNodeModuleJsDepth": 100,
+    "esModuleInterop": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules/**"
   ]
 }

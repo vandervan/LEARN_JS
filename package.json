@@ -1,12 +1,15 @@
 {
-  "name": "learn_js",
+  "name": "test",
   "version": "1.0.0",
-  "description": "NodeJS homework",
-  "main": "index.js",
+  "description": "Protractor + Jasmine + Typescript testing framework",
+  "main": "config.ts",
   "scripts": {
-    "eslint": "eslint  --ext .js,.jsx,.ts,.tsx src/",
-    "eslint:dump": "eslint --print-config ./.eslintrc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "tsc",
+    "clean": "npm rm -rf outputJS",
+    "start": "webdriver-manager start --standalone",
+    "test": "protractor dist/config.js",
+    "posttest": "allure generate allure-report --clean || true",
+    "debug": "node --inspect-brk protractor src/config.ts"
   },
   "repository": {
     "type": "git",
@@ -22,27 +25,31 @@
     "url": "https://github.com/vandervan/LEARN_JS/issues"
   },
   "homepage": "https://github.com/vandervan/LEARN_JS#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.21.0",
-    "@typescript-eslint/parser": "^2.21.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-optimize-regex": "^1.1.7",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.4.0",
-    "eslint-plugin-sonarjs": "^0.5.0",
-    "fs-extra": "^8.1.0",
-    "typescript": "^3.8.2"
-  },
   "dependencies": {
     "@types/jasmine": "^3.5.7",
     "@types/jasminewd2": "^2.0.8",
-    "chromedriver": "^80.0.1",
-    "eslint-config-prettier": "^6.10.0",
-    "geckodriver": "^1.19.1",
+    "@types/node": "^13.7.7",
+    "allure-commandline": "^2.13.0",
+    "allure-jasmine": "^2.0.0-beta.6",
+    "chromedriver": "latest",
+    "fs-extra": "^8.1.0",
+    "geckodriver": "latest",
     "jasmine": "^3.5.0",
+    "jasmine-allure-reporter": "^1.0.2",
     "jasmine-core": "^3.5.0",
-    "protractor": "^5.4.2",
-    "jasmine-expect": "^4.0.3"
+    "maven": "^4.7.0",
+    "protractor": "^5.4.3",
+    "requirejs": "^2.3.6",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  },
+  "devDependencies": {
+    "jasmine-expect": "^4.0.3",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3",
+    "jasmine-spec-reporter": "^4.2.1",
+    "@babel/core": "^7.8.7",
+    "@babel/cli": "^7.8.4",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7"
   }
 }
