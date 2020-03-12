@@ -12,8 +12,7 @@ export let config: Config = {
 			browserName: 'chrome',
 		},
 
-	specs: ['dist/tests/yandex_cities_spec.js,' +
-	'dist/tests/controls_yandex_spec.js'],
+	specs: ["./dist/tests/yandex_pull_spec.js"],
 	jasmineNodeOpts: {
 		showColors: true,
 		defaultTimeoutInterval: 90000

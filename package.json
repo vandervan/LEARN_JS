@@ -4,6 +4,7 @@
   "description": "Protractor + Jasmine + Typescript testing framework",
   "main": "config.ts",
   "scripts": {
+    "preinstall": "npm cache clear",
     "pretest": "tsc",
     "clean": "npm rm -rf outputJS",
     "start": "webdriver-manager start --standalone",

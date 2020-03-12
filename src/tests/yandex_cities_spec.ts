@@ -7,6 +7,7 @@ describe('More tab', async () =>{
         await browser.get('https://yandex.by/');
     });
     it('compare two tabs London and Paris', async() => {
+        await browser.debugger();
         await Methods.pressLocationBtn();
         await Methods.sendCity('Лондон');
         const arrayLondon = await Methods.getValueFromLondonMore();
