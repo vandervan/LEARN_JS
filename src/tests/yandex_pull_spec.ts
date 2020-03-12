@@ -7,7 +7,7 @@ fdescribe('First pull of test cases on Yandex ', async () => {
         await browser.waitForAngularEnabled(false);
         await browser.get('https://yandex.by/');
 });
-    xit('Login on Yandex Mail ', async () =>  {
+    fit('Login on Yandex Mail ', async () =>  {
         await pullMethods.loginFunction(yandexHomeLocators.logInBtn);
         await pullMethods.moveDriverToNewTab();
         await pullMethods.loginProcess('AutotestUser', 'AutotestUser123');

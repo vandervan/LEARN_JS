@@ -9,7 +9,7 @@
     "clean": "npm rm -rf outputJS",
     "start": "webdriver-manager start --standalone",
     "test": "protractor dist/config.js",
-    "posttest": "allure generate allure-report --clean || true",
+    "posttest": "allure generate dist/allure-results --clean -o allure-report || true",
     "debug": "node --inspect-brk protractor src/config.ts"
   },
   "repository": {

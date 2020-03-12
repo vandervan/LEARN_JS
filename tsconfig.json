@@ -12,6 +12,8 @@
     "esModuleInterop": true
   },
   "exclude": [
-    "node_modules/**"
+    "node_modules/**",
+    "allure-results/**",
+    "dist/**"
   ]
 }
