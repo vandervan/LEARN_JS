@@ -80,4 +80,8 @@ export class pullMethods {
     public static async languageChecker() {
         return yandexHomeLocators.languageDropdown.getText();
     }
+
+    public static async anotherAccBtn () {
+        await yandexAuthorization.anotherAcc.click();
+    }
 }
