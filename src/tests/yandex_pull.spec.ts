@@ -13,7 +13,7 @@ describe('First pull of test cases on Yandex ', async () => {
         await pullMethods.moveDriverToNewTab();
         await pullMethods.loginProcess('AutotestUser', 'AutotestUser123');
         await pullMethods.moveDriverToMainTab();
-        browser.refresh();
+        await browser.refresh();
         const currentName = pullMethods.getLoggedName(yandexHomeLocators.loggedUsr);
         expect(currentName).toContain('AutotestUser');
     });
