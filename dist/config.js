@@ -20,7 +20,7 @@ exports.config = {
             }
         }
     },
-    specs: ["./dist/tests/bbc_spec.js"],
+    specs: ["C:\\Users\\anduser\\Documents\\LEARN_JS\\dist\\tests\\yandex_pull.spec.js"],
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 90000
