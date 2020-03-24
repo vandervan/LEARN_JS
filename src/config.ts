@@ -11,6 +11,16 @@ export let config: Config = {
 	capabilities:
 		{
 			browserName: 'chrome',
+			chromeOptions: {
+				'excludeSwitches' : ['enable-automation'],
+				//args: ['--headless'],
+				prefs: {
+					download: {
+						'prompt_for_download': false,
+						'default_directory': './downloads'
+					}
+				}
+			}
 		},
 
 	specs: ["./dist/tests/yandex_pull.spec.js"],
@@ -22,10 +32,10 @@ export let config: Config = {
 	restartBrowserBetweenTests: false,
 
 	onPrepare: () => {
-		// let AllureReporter = require('jasmine-allure-reporter');
-		// jasmine.getEnv().addReporter(new AllureReporter ({
-		// 	resultsDir: 'allure-results'
-		// }));
+		let AllureReporter = require('jasmine-allure-reporter');
+		jasmine.getEnv().addReporter(new AllureReporter ({
+			resultsDir: 'allure-results'
+		}));
 		let globals = require('protractor');
 		let browser = globals.browser;
 		browser.manage().window().maximize();
