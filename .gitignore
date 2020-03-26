@@ -9,3 +9,5 @@ package-lock.json
 /allure-report/
 /spec/
 /dist/
+/allure-results/
+/HtmlReport/
