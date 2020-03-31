@@ -1,4 +1,4 @@
-import {browser, Key, protractor} from "protractor";
+import {browser} from "protractor";
 import {yandexAuthorization} from "../locators/yandex_autorization_page_locators";
 import {yandexHomeLocators} from "../locators/yandex_mail_main_locators";
 

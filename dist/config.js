@@ -11,7 +11,8 @@ exports.config = {
         browserName: 'chrome',
         chromeOptions: {
             'excludeSwitches': ['enable-automation'],
-            //args: ['--headless'],
+            args: [ //'--headless','disable-infobars=true'
+            ],
             prefs: {
                 download: {
                     'prompt_for_download': false,

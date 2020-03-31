@@ -7,7 +7,11 @@ export const market = {
     searchButton: element(by.css('[type=\'submit\'][role=\'button\']')),
     searchField: element(by.css('#header-search')),
     moneyFromField: element(by.css('#glpricefrom')),
-    dropdownList: element(by.css('.suggest2-rich-item__text'))
+    dropdownList: element(by.css('.suggest2-rich-item__text')),
+    firstPhone: element(by.css('div.hint_js_inited')),
+    secondPhone: element(by.css('a._popup2-destructor')),
+    compareBtn: element(by.css('.button_theme_action')),
+    content: element(by.partialLinkText('Note 8'))
 };
 
 

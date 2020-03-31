@@ -8,5 +8,9 @@ exports.market = {
     searchButton: protractor_1.element(protractor_1.by.css('[type=\'submit\'][role=\'button\']')),
     searchField: protractor_1.element(protractor_1.by.css('#header-search')),
     moneyFromField: protractor_1.element(protractor_1.by.css('#glpricefrom')),
-    dropdownList: protractor_1.element(protractor_1.by.css('.suggest2-rich-item__text'))
+    dropdownList: protractor_1.element(protractor_1.by.css('.suggest2-rich-item__text')),
+    firstPhone: protractor_1.element(protractor_1.by.css('div.hint_js_inited')),
+    secondPhone: protractor_1.element(protractor_1.by.css('a._popup2-destructor')),
+    compareBtn: protractor_1.element(protractor_1.by.css('.button_theme_action')),
+    content: protractor_1.element(protractor_1.by.partialLinkText('Note 8'))
 };
