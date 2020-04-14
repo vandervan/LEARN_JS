@@ -14,8 +14,6 @@ fdescribe('Yandex Pull 2', async () => {
         await secondPull.searchInputField('Note 8');
         await secondPull.addToMatch();
         await secondPull.comparision();
-        // const result = await secondPull.comparision();
-        // expect(result).not.toEqual(null);
     });
 
     fit('Delete from match ', async () => {
@@ -24,18 +22,14 @@ fdescribe('Yandex Pull 2', async () => {
         await secondPull.ClickOnMarket();
         await secondPull.searchInputField('Note 8');
         await secondPull.addToMatch();
-        await secondPull.comparision();
-        // let result: any = await secondPull.comparision();
-        // expect(result).not.toEqual(null);
         await secondPull.listClearer();
-        // result = await secondPull.listClearer();
-        // expect(result).toEqual('Товаров нет');
     });
 
-    // it('Sorting by price', async () => {
-    //     let secondPull: SecondPull = new SecondPull();
-    //     await secondPull.OpenBrowser('https://yandex.by');
-    //     await secondPull.ClickOnMarket();
-    //     await secondPull.moveDriverToNewTab()
-    // });
+    fit('Sorting by price', async () => {
+        let secondPull: SecondPull = new SecondPull();
+        await secondPull.OpenBrowser('https://yandex.by');
+        await secondPull.ClickOnMarket();
+        await secondPull.electronics();
+        await secondPull.priceChecker();
+    });
 })
