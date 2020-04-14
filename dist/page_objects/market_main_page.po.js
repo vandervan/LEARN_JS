@@ -41,7 +41,7 @@ class marketMethods {
             let timer = 5000;
             let counter = 0;
             locator.sendKeys(text);
-            let dropdownBtn = market_locators_1.market.dropdownList;
+            let dropdownBtn = market_locators_1.Market_locators.dropdownList;
             while (!dropdownBtn.isPresent() && counter < timer) {
                 protractor_1.browser.sleep(1000);
                 counter += 1000;

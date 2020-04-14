@@ -12,8 +12,8 @@ export let config: Config = {
 		{
 			browserName: 'chrome',
 			chromeOptions: {
-				'excludeSwitches' : ['enable-automation'],
-				args: [ //'--headless','disable-infobars=true'
+				//'excludeSwitches' : ['enable-automation'],
+				args: ['disable-infobars=true'
 					 ],
 				prefs: {
 					download: {

@@ -1,20 +1,41 @@
 import {browser} from "protractor";
 import {SecondPull} from "../page_objects/2_pull.page.po";
 
-let sp: SecondPull = new SecondPull();
-
-describe('Yandex Pull 2', async () => {
-
+fdescribe('Yandex Pull 2', async () => {
     beforeEach(async () => {
-        browser.waitForAngularEnabled(false);
+        await browser.waitForAngularEnabled(false);
+        await browser.manage().window().maximize();
     })
 
-    it('Should add to match ', async () => {
-        await sp.OpenBrowser('https://yandex.by');
-        await sp.ClickOnMarket();
-        await sp.searchInputField('Note 8');
-        await sp.addToMatch();
-        await sp.comparision();
-        expect(sp.comparision).toContain('Note 8')
+    fit('Add to match ', async () => {
+        let secondPull: SecondPull = new SecondPull();
+        await secondPull.OpenBrowser('https://yandex.by');
+        await secondPull.ClickOnMarket();
+        await secondPull.searchInputField('Note 8');
+        await secondPull.addToMatch();
+        await secondPull.comparision();
+        // const result = await secondPull.comparision();
+        // expect(result).not.toEqual(null);
     });
+
+    fit('Delete from match ', async () => {
+        let secondPull: SecondPull = new SecondPull();
+        await secondPull.OpenBrowser('https://yandex.by');
+        await secondPull.ClickOnMarket();
+        await secondPull.searchInputField('Note 8');
+        await secondPull.addToMatch();
+        await secondPull.comparision();
+        // let result: any = await secondPull.comparision();
+        // expect(result).not.toEqual(null);
+        await secondPull.listClearer();
+        // result = await secondPull.listClearer();
+        // expect(result).toEqual('Товаров нет');
+    });
+
+    // it('Sorting by price', async () => {
+    //     let secondPull: SecondPull = new SecondPull();
+    //     await secondPull.OpenBrowser('https://yandex.by');
+    //     await secondPull.ClickOnMarket();
+    //     await secondPull.moveDriverToNewTab()
+    // });
 })
