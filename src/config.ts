@@ -13,7 +13,8 @@ export let config: Config = {
 			browserName: 'chrome',
 			chromeOptions: {
 				//'excludeSwitches' : ['enable-automation'],
-				args: ['--headless', 'disable-infobars=true'],
+				args: ['disable-infobars=true'
+					 ],
 				prefs: {
 					download: {
 						'prompt_for_download': false,
@@ -23,13 +24,13 @@ export let config: Config = {
 			}
 		},
 
-	specs: ["C:\\Users\\anduser\\Documents\\LEARN_JS\\dist\\tests\\yandex_pull.spec.js"],
+	specs: ["../dist/tests/*.spec.js"],
 	jasmineNodeOpts: {
 		showColors: true,
 		defaultTimeoutInterval: 90000
 	},
 
-	restartBrowserBetweenTests: false,
+	restartBrowserBetweenTests: true,
 
 	onPrepare: () => {
 		let AllureReporter = require('jasmine-allure-reporter');

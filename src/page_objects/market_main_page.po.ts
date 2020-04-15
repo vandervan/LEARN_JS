@@ -1,5 +1,5 @@
 import {browser} from 'protractor';
-import {market} from '../locators/market_locators';
+import {Market_locators} from '../locators/market_locators';
 
 export class marketMethods {
 
@@ -27,7 +27,7 @@ export class marketMethods {
         let timer = 5000;
         let counter = 0;
         locator.sendKeys(text);
-        let dropdownBtn = market.dropdownList;
+        let dropdownBtn = Market_locators.dropdownList;
         while (!dropdownBtn.isPresent() && counter<timer) {
             browser.sleep(1000);
             counter +=1000;

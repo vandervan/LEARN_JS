@@ -1,6 +1,6 @@
 import {browser} from 'protractor';
 import {marketMethods} from '../page_objects/market_main_page.po';
-import {market} from '../locators/market_locators';
+import {Market_locators} from '../locators/market_locators';
 
 describe('Basic controls: ', async () => {
     beforeEach(async () => {
@@ -13,21 +13,21 @@ describe('Basic controls: ', async () => {
     });
 
     it('Скролл и чекбокс', async () => {
-        await marketMethods.moveMeToElement(market.checkBox4Ram);
-        await marketMethods.clickOn(market.checkBox4Ram);
-        await marketMethods.clickOn(market.checkBox4Ram);
+        await marketMethods.moveMeToElement(Market_locators.checkBox4Ram);
+        await marketMethods.clickOn(Market_locators.checkBox4Ram);
+        await marketMethods.clickOn(Market_locators.checkBox4Ram);
     });
 
     it('Радио-баттон', async () => {
-        await marketMethods.clickOn(market.radioBtn4Stars);
+        await marketMethods.clickOn(Market_locators.radioBtn4Stars);
     });
 
     it('Вводим цену и потом выводим в консоль класс и значение', async () => {
-        await marketMethods.putText('400', market.moneyFromField);
-        await marketMethods.getTextFrom(market.moneyFromField);
+        await marketMethods.putText('400', Market_locators.moneyFromField);
+        await marketMethods.getTextFrom(Market_locators.moneyFromField);
     });
 
     it('Вводим слово в поиск, нажимаем на значение из дропдауна', async () => {
-        await marketMethods.DropDown('Huawei', market.searchField);
+        await marketMethods.DropDown('Huawei', Market_locators.searchField);
     });
 });

@@ -22,18 +22,18 @@ describe('Basic controls: ', () => __awaiter(void 0, void 0, void 0, function* (
          Таков уж Яндекс, иногда работает без капчи, иногда нет */
     }));
     it('Скролл и чекбокс', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield market_main_page_po_1.marketMethods.moveMeToElement(market_locators_1.market.checkBox4Ram);
-        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.market.checkBox4Ram);
-        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.market.checkBox4Ram);
+        yield market_main_page_po_1.marketMethods.moveMeToElement(market_locators_1.Market_locators.checkBox4Ram);
+        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.Market_locators.checkBox4Ram);
+        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.Market_locators.checkBox4Ram);
     }));
     it('Радио-баттон', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.market.radioBtn4Stars);
+        yield market_main_page_po_1.marketMethods.clickOn(market_locators_1.Market_locators.radioBtn4Stars);
     }));
     it('Вводим цену и потом выводим в консоль класс и значение', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield market_main_page_po_1.marketMethods.putText('400', market_locators_1.market.moneyFromField);
-        yield market_main_page_po_1.marketMethods.getTextFrom(market_locators_1.market.moneyFromField);
+        yield market_main_page_po_1.marketMethods.putText('400', market_locators_1.Market_locators.moneyFromField);
+        yield market_main_page_po_1.marketMethods.getTextFrom(market_locators_1.Market_locators.moneyFromField);
     }));
     it('Вводим слово в поиск, нажимаем на значение из дропдауна', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield market_main_page_po_1.marketMethods.DropDown('Huawei', market_locators_1.market.searchField);
+        yield market_main_page_po_1.marketMethods.DropDown('Huawei', market_locators_1.Market_locators.searchField);
     }));
 }));

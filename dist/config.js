@@ -5,13 +5,14 @@ const options = new chrome.Options();
 exports.config = {
     framework: 'jasmine2',
     //seleniumAddress: 'http://localhost:4444/wd/hub',
-    SELENIUM_PROMISE_MANAGER: true,
+    SELENIUM_PROMISE_MANAGER: false,
     directConnect: true,
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
             'excludeSwitches': ['enable-automation'],
-            //args: ['--headless'],
+            args: [ //'--headless','disable-infobars=true'
+            ],
             prefs: {
                 download: {
                     'prompt_for_download': false,
@@ -20,12 +21,12 @@ exports.config = {
             }
         }
     },
-    specs: ["C:\\Users\\anduser\\Documents\\LEARN_JS\\dist\\tests\\yandex_pull.spec.js"],
+    specs: ["..dist/tests/*.spec.js"],
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 90000
     },
-    restartBrowserBetweenTests: false,
+    restartBrowserBetweenTests: true,
     onPrepare: () => {
         let AllureReporter = require('jasmine-allure-reporter');
         jasmine.getEnv().addReporter(new AllureReporter({
