@@ -1,6 +1,6 @@
-import {browser, by, element, ElementArrayFinder, ElementFinder, ExpectedConditions} from "protractor";
+import {$$, browser, by, element, ElementArrayFinder, ElementFinder, ExpectedConditions, promise} from "protractor";
 
-export class SecondPull {
+export class SecondPullMarket {
 
     public marketBtn: ElementFinder = element(by.xpath('//a[@data-id=\'market\']'));
     public searchField: ElementFinder = element(by.id('header-search'));
@@ -9,13 +9,17 @@ export class SecondPull {
     public secondResult: ElementFinder = element(by.xpath('(//*[contains(@class,\'n-user-lists_type_compare\')])[2]'));
     public compareBtn: ElementFinder = element(by.css('.header2-menu__item_type_compare:nth-child(3) > span.header2-menu__text'));
     public addedToCompareItemsHeader: ElementFinder = element(by.css('div.layout.layout_type_maya.n-page-compare > h1'));
-    public content: ElementArrayFinder = element.all(by.css('.i-bem.n-compare-content_js_inited'));
+    public content: ElementArrayFinder = $$('.i-bem.n-compare-content_js_inited');
     public clearListBtn: ElementFinder = element(by.xpath('//span[@class="n-compare-toolbar__action-clear link"]//span[@class="link__inner"]'));
     public emptyListMsg: ElementFinder = element(by.css('.n-compare-empty__content .title_size_18'));
     public electronicsBtn: ElementFinder = element(by.css('[href="/catalog--elektronika/54440"]'));
     public actionCamerasBtn: ElementFinder = element(by.css('[href="/catalog--ekshn-kamery-v-minske/71635/list?hid=14369750"]'));
     public sortByPrice: ElementFinder = element(by.partialLinkText('по цене'));
-    public sortedItems: ElementArrayFinder = element.all(by.css('.n-snippet-card2__main-price .link'));
+    public sortedItems: ElementArrayFinder = $$('div.price');
+    public homeTechnics: ElementFinder = element(by.css('[href="/catalog--bytovaia-tekhnika/54419"]'));
+    public selectFridgesBtn: ElementFinder = element(by.css('[href="/catalog--kholodilniki-v-minske/71639/list?hid=15450081"]'));
+    public widthTag: ElementFinder = element(by.id('15464317to'));
+
 
     async OpenBrowser(url: string){
         await browser.get(url);
@@ -62,8 +66,19 @@ export class SecondPull {
     }
 
     async priceChecker(){
-       let first = this.sortedItems.first().getText();
-       let last = this.sortedItems.last().getText();
+       let first: promise.Promise<string> = this.sortedItems.first().getText();
+       let last: promise.Promise<string> = this.sortedItems.last().getText();
        expect(first).toBeGreaterThan(+last);
+    }
+
+    async fridges() {
+        await this.homeTechnics.click();
+        await this.selectFridgesBtn.click();
+        await this.widthTag.sendKeys('50');
+    }
+
+    async tagChecker() {
+        const actualWidth: string = await this.widthTag.getAttribute('value')
+        expect(+actualWidth).toBeLessThanOrEqual(50);
     }
 }
