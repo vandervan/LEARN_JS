@@ -7,13 +7,18 @@ describe('Music test cases', async () => {
        await browser.waitForAngularEnabled(false);
        await browser.manage().window().maximize();
        await secondPull.openBrowser('https://yandex.by');
-       await secondPull.logIn('AutotestUser', 'AutotestUser123');
        await secondPull.OpenMusic();
    });
 
     it('Metallica', async () => {
         let secondPull: SecondPullMusic = new SecondPullMusic();
-        await secondPull.SearchForMetallica();
+        await secondPull.SearchForMetallica('Metal');
         await secondPull.MetallicaChecker();
+    });
+
+    it('Beyonce', async() => {
+        let secondPull: SecondPullMusic = new SecondPullMusic();
+        await secondPull.SearchForBeyonce('Beyo');
+        await secondPull.TrackPlayer();
     });
 });
