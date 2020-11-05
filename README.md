@@ -1,3 +1,3 @@
-# LEARN_JS
+# learn.javascript.ru
 AQA Courses
 
